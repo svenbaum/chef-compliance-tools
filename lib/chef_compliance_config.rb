@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# all config parameters for the Chef and Compliance server go in here.  
+
 require 'dotenv'
 Dotenv.load
 

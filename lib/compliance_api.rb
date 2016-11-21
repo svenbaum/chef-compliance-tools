@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Module for api calls to the Compliance server 
+
 require 'colorize' 
 require 'json'
 require 'net/http'
