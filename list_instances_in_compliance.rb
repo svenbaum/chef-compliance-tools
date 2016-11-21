@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# list all instances in Compliance server 
+
 require "awesome_print"
 require 'pp'
 

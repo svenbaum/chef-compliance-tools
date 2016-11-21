@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# Update compliance server by adding/removing nodes in sync with the Chef server 
+
 require "awesome_print"
 require 'colorize' 
 require 'json'

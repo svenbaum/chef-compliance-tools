@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# deletes all nodes in the compliance server 
+
 require "awesome_print"
 
 lib = File.expand_path('../lib', __FILE__)

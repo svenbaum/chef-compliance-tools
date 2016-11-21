@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# list all instances in Chef server 
+
 require "awesome_print"
 require 'json'
 require 'net/http'
