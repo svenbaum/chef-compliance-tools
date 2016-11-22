@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# list all instances in Chef server 
+# list all nodes in Chef server 
 
 require "awesome_print"
 require 'json'
@@ -54,7 +54,7 @@ end
 
 chef_nodes = node_ids.sort
 ap chef_nodes
-ap "Total: #{chef_nodes.length} instances in Chef"
+ap "Total: #{chef_nodes.length} nodes in Chef"
 
 
 

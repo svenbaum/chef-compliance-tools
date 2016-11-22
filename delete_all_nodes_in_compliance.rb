@@ -13,7 +13,7 @@ require "compliance_api"
 response = api_call('GET', "/owners/#{ComplianceConf.api_org}/envs")
 envs = JSON.parse(response.body)
 
-# array of instances in compliance postgres database
+# array of nodes in compliance postgres database
 allnodes = []
 
 # iterate over all environments to get all nodes
@@ -32,7 +32,7 @@ compliance_nodes.each { |i|
     api_call('DELETE', "/owners/#{ComplianceConf.api_org}/envs/#{i["environment"]}/nodes/#{i["id"]}")
   end
 }
-ap "Removed: #{compliance_nodes.length} instances in Compliance"
+ap "Removed: #{compliance_nodes.length} nodes in Compliance"
 
 # delete all environments  
 envs.each { |e|

@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-# list all instances in Compliance server 
+# list all nodes in Compliance server 
 
 require "awesome_print"
 require 'pp'
@@ -13,7 +13,7 @@ require "compliance_api"
 response = api_call('GET', "/owners/#{ComplianceConf.api_org}/envs")
 envs = JSON.parse(response.body)
 
-# array of instances in compliance postgres database
+# array of nodes in compliance postgres database
 allnodes = []
 
 # iterate over all environments to get all nodes
@@ -46,7 +46,7 @@ puts "" if (compliance_ids.length > 0)
 
 ap compliance_ids
 
-ap "Total: #{compliance_ids.length} instances in Compliance"  
+ap "Total: #{compliance_ids.length} nodes in Compliance"  
 
 #pp compliance_ids
 #pp compliance_ips 

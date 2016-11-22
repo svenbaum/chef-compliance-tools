@@ -22,7 +22,7 @@ require "compliance_api"
 response = api_call('GET', "/owners/#{ComplianceConf.api_org}/envs")
 envs = JSON.parse(response.body)
 
-# array of instances in compliance postgres database
+# array of nodes in compliance postgres database
 allnodes = []
 
 # iterate over all environments to get all nodes 
@@ -66,10 +66,6 @@ chef_nodes = ridley.search(:node)
 # extract array of hashes
 chef_ids = []
 chef_nodes.each do |n|
-  
-  # TODO: remove after testing 
-  next unless (n["name"] =~ /bb-dev-compliance-test-02/) 
-  
   chef_ids.push(n["name"])
 end
 #ap chef_ids
@@ -79,11 +75,11 @@ end
 # Compare: Compliance <=> Chef 
 
 # Nodes in Chef
-puts "\nTotal: #{chef_ids.length} instances in Chef".colorize(:light_blue)
+puts "\nTotal: #{chef_ids.length} nodes in Chef".colorize(:light_blue)
 #  ap chef_ids.sort
 
 # Nodes in Compliance
-puts "\nTotal: #{compliance_ids.length} instances in Compliance".colorize(:light_blue)
+puts "\nTotal: #{compliance_ids.length} nodes in Compliance".colorize(:light_blue)
 #  ap compliance_ids.sort
 
 #--------------------------------------
@@ -93,7 +89,7 @@ puts "\nTotal: #{compliance_ids.length} instances in Compliance".colorize(:light
 remove_ids = []
 remove_ids = (compliance_ids - chef_ids)
 remove_ids = remove_ids.sort
-puts "\nRemove: #{remove_ids.length} instances from Compliance".colorize(:light_blue)
+puts "\nRemove: #{remove_ids.length} nodes from Compliance".colorize(:light_blue)
 if (remove_ids.length > 0)
   ap remove_ids
 end
@@ -117,7 +113,7 @@ end
 insert_ids = []
 insert_ids = (chef_ids - compliance_ids)
 insert_ids = insert_ids.sort 
-puts "\nInsert: #{insert_ids.length} instances into Compliance".colorize(:light_blue)
+puts "\nInsert: #{insert_ids.length} nodes into Compliance".colorize(:light_blue)
 if (insert_ids.length > 0)
   ap insert_ids
   puts "\nDetails of inserted nodes:\n".colorize(:light_blue)
